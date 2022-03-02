@@ -1,0 +1,25 @@
+* {
+  border: solid blue 2px;
+}
+html {
+  height:100%;
+}
+
+.middle-section {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.players-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.computer-player,
+.human-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
