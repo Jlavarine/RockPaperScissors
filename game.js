@@ -26,7 +26,7 @@ class Game {
         losesAgainst: 'rock',
         beats: 'paper'
       }
-    }
+    };
     this.difficultGameRules = {
       rock: {
         type: 'rock',
@@ -57,20 +57,24 @@ class Game {
   }
   checkWinnerClassic() {
     if(this.humanPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].beats) {
-      console.log(`Human wins! (rock)`)
+      console.log(`Human wins!`);
+      this.humanPlayer.wins += 1;
     } else if(this.humanPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].type) {
-      console.log(`Tie Game`)
+      console.log(`Tie Game`);
     } else if(this.humanPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice !== this.classicGameRules[this.humanPlayerSelectedChoice].beats) {
-      console.log(`Computer Wins`)
+      console.log(`Computer Wins`);
+      this.computerPlayer.wins += 1;
     }
   };
   checkWinnerDifficult() {
     if(this.humanPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type && (this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].beats[0] || this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].beats[1])) {
-      console.log(`Human wins!`)
+      console.log(`Human wins!`);
+      this.humanPlayer.wins += 1;
     } else if(this.humanPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type) {
-      console.log(`Tie Game`)
+      console.log(`Tie Game`);
     } else if(this.humanPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type && (this.computerPlayerSelectedChoice !== this.difficultGameRules[this.humanPlayerSelectedChoice].beats[0] || this.computerPlayerSelectedChoice !== this.difficultGameRules[this.humanPlayerSelectedChoice].beats[1])) {
-      console.log(`Computer Wins`)
+      console.log(`Computer Wins`);
+      this.computerPlayer.wins += 1;
     }
   };
   resetBoard() {
