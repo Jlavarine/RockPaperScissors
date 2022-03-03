@@ -1,6 +1,7 @@
-/* * {
-  border: solid blue .5px;
-} */
+* {
+  margin: 0;
+  padding: 0;
+}
 
 html {
   height:100%;
@@ -8,12 +9,13 @@ html {
 }
 
 h1 {
-  font-size: 39px
+  font-size: 39px;
 }
 
 h1,
 h2 {
   color: white;
+  border: dashed blue 2px;
 }
 
 body {
@@ -36,6 +38,11 @@ button:hover {
   background-color: white;
 }
 
+img {
+  height: 210px;
+  width: 210px;
+}
+
 .change-game-button {
   height: 60px;
   width: 180px;
@@ -49,14 +56,15 @@ button:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  height: 100%;
+  height: 772px;
 }
 
 .central-section {
+  border: solid teal 1px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 216px;
+  justify-content: space-around;
+  align-items: center;
   width: 407px;
 }
 
@@ -65,7 +73,6 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 70px;
 }
 
 .player-section,
@@ -93,6 +100,8 @@ button:hover {
 
 .left-side,
 .right-side {
+  margin: 0;
+  padding: 9px;
   background-color: #CD82F0;
   width: 250px;
 }
@@ -109,6 +118,24 @@ max-width: 100%;
 max-height: 100%;
 display: block;
 }
+
+.classic-choices,
+.difficult-choices {
+  display: flex;
+  border: solid red 0.5px;
+  height: 210px;
+  width: 280px;
+  justify-content: center;
+}
+
+.difficult-choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 460px;
+  width: 630px;
+}
+
 
 .hidden {
   display: none;
