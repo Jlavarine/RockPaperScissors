@@ -1,26 +1,133 @@
-* {
-  border: solid blue 2px;
-}
+/* * {
+  border: solid blue .5px;
+} */
 
 html {
   height:100%;
+  overflow: hidden;
 }
 
+body {
+  height: 100%;
+  background-color: #C76AF1;
+  margin: -8px;
+}
+
+button {
+  height: 207px;
+  width: 281px;
+  cursor: pointer;
+  background-color: #AB49DA
+}
+
+button:hover {
+  background-color: white;
+}
+
+.change-game-button {
+  height: 60px;
+  width: 180px;
+  cursor: pointer;
+  background-color: #AB49DA
+}
+
+.all-sections {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+}
+
+.central-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 216px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.player-section,
+.computer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-side,
+.right-side {
+  background-color: #CD82F0;
+  width: 250px;
+}
+
+.choices {
+max-width: 100%;
+max-height: 100%;
+display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+/*
+button {
+  height: 207px;
+  width: 281px;
+  cursor: pointer;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.main-section {
+  display: flex;
+}
 .middle-section {
   align-items: center;
   flex-direction: column;
   display: flex;
+  margin: -142px;
 }
 
-.players-section {
+.mid-section {
+  padding: 20px;
+}
+
+.player-section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+.computer-section {
+  display: flex;
+}
+
 .computer-player,
 .human-player {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  overflow-y: auto;
+  width: 25%;
 }
+
+.classic-mode,
+.difficult-mode {
+  background-color: #AB49DA
+}
+
+.hidden {
+  display: none;
+} */
