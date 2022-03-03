@@ -2,9 +2,9 @@ class Game {
   constructor() {
     this.humanPlayer = new Player('Human', '👨');
     this.computerPlayer = new Player('Computer', '💻');
-    this.humanPlayerSelectedChoice = 'scissors'; // 'rock' or 'paper' or 'scissors'
-    this.computerPlayerSelectedChoice = 'scissors'; // 'rock' or 'paper' or 'scissors'
-    this.selectedGameMode = 'classicMode';
+    this.humanPlayerSelectedChoice = 'rock'; // 'rock' or 'paper' or 'scissors'
+    this.computerPlayerSelectedChoice = 'alien'; // 'rock' or 'paper' or 'scissors'
+    this.selectedGameMode = 'difficultMode';
     // this.humanPlayer = new Player('Human', '👨');
     // this.computerPlayer = new Player('Computer', '💻');
     // this.humanPlayerSelectedChoice = humanPlayer.selectedChoice; // 'rock' or 'paper' or 'scissors'
@@ -27,7 +27,33 @@ class Game {
         beats: 'paper'
       }
     }
-    this.difficultGameRules = {};
+    this.difficultGameRules = {
+      rock: {
+        type: 'rock',
+        losesAgainst: ['paper', 'alien'],
+        beats: ['scissors', 'lizard']
+      },
+      paper: {
+        type: 'paper',
+        losesAgainst: ['scissors', 'lizard'],
+        beats: ['rock', 'alien']
+      },
+      scissors: {
+        type: 'scissors',
+        losesAgainst: ['rock', 'alien'],
+        beats: ['paper', 'lizard']
+      },
+      lizard: {
+        type: 'lizard',
+        losesAgainst: ['rock', 'scissors'],
+        beats: ['paper', 'alien']
+      },
+      alien: {
+        type: 'alien',
+        losesAgainst: ['paper', 'lizard'],
+        beats: ['scissors', 'rock']
+      },
+    };
   }
   checkWinnerClassic() {
     if(this.humanPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].beats) {
@@ -37,19 +63,20 @@ class Game {
     } else if(this.humanPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice !== this.classicGameRules[this.humanPlayerSelectedChoice].beats) {
       console.log(`Computer Wins`)
     }
-      // whatever object has now been selected by comparing if  is === to what the human player has selected i need to now compare if what
-      // the computer has selected is in my(human's) objects beat key
-
-      // if (this.humanPlayerSelectedChoice('') === this.classicGameRules[this.humanPlayerSelectedChoice]) {
-
-    // determine the winner of this classic round by looking at both the humanPlayer's
-    // selected choice and computerPlayer's selected choice and  see which wins based off the rules of the gamemode.
   };
   checkWinnerDifficult() {
-    // determine the winner of this class ic round by looking at both the humanPlayer's
-    // selected choice and computerPlayer's selected choice and  see which wins based off the rules of the gamemode.
+    if(this.humanPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type && (this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].beats[0] || this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].beats[1])) {
+      console.log(`Human wins!`)
+    } else if(this.humanPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type) {
+      console.log(`Tie Game`)
+    } else if(this.humanPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type && (this.computerPlayerSelectedChoice !== this.difficultGameRules[this.humanPlayerSelectedChoice].beats[0] || this.computerPlayerSelectedChoice !== this.difficultGameRules[this.humanPlayerSelectedChoice].beats[1])) {
+      console.log(`Computer Wins`)
+    }
   };
   resetBoard() {
-
+    this.humanPlayerSelectedChoice = '';
+    this.computerPlayerSelectedChoice = '';
+    this.selectedGameMode = '';
+    console.log('reset')
   };
 };
