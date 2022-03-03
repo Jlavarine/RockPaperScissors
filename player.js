@@ -20,4 +20,3 @@ class Player {
     // that choice is then stored in this.selectedChoice for the human
   };
 };
-module.exports = Player;
