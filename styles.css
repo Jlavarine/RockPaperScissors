@@ -9,13 +9,17 @@ html {
 }
 
 h1 {
-  font-size: 39px;
+  font-size: 65px;
 }
 
 h1,
 h2 {
   color: white;
-  border: dashed blue 2px;
+  /* border: dashed blue 2px; */
+}
+
+h2 {
+  font-size: 25px;
 }
 
 body {
@@ -29,13 +33,16 @@ button {
   width: 281px;
   cursor: pointer;
   background-color: #AB49DA;
-  font-family: 'Passion One', cursive;
-  font-size: 15px;
+  font-family: 'Hubballi', cursive;
+  font-size: 25px;
   font-weight: bold;
+  color: #f0f2f5;
 }
 
 button:hover {
   background-color: white;
+  color: #AB49DA;
+
 }
 
 img {
@@ -60,7 +67,7 @@ img {
 }
 
 .central-section {
-  border: solid teal 1px;
+  /* border: solid teal 1px; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -81,7 +88,7 @@ img {
   flex-direction: column;
   align-items: center;
   font-family: 'Kalam', cursive;
-  font-size: 20px;
+  font-size: 35px;
   font-weight: bolder;
   height: 800px
 }
@@ -91,6 +98,7 @@ img {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 724px;
 }
 
 /* .classic-section,
@@ -104,6 +112,7 @@ img {
   padding: 9px;
   background-color: #CD82F0;
   width: 250px;
+  height: 933px;
 }
 
 .left-side {
@@ -122,7 +131,7 @@ display: block;
 .classic-choices,
 .difficult-choices {
   display: flex;
-  border: solid red 0.5px;
+  /* border: solid red 0.5px; */
   height: 210px;
   width: 280px;
   justify-content: center;
@@ -136,6 +145,10 @@ display: block;
   width: 630px;
 }
 
+.difficult-mode {
+  height: 235px;
+  width: 281px;
+}
 
 .hidden {
   display: none;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Rock Paper Scissors</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Kalam&family=Passion+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi&family=Kalam&family=Passion+One&display=swap" rel="stylesheet">
   </head>
   <body>
     <section class="all-sections">
@@ -16,7 +16,7 @@
           <p>Wins:</p>
         </div>
         <div class="change-game">
-          <button class="change-game-button">Change Game?</button>
+          <button class="change-game-button hidden">Change Game?</button>
         </div>
       </section>
       <section class="central-section">
@@ -24,19 +24,24 @@
           <article class="title">
             <h1>Rock, Paper, Scissors</h1>
             <h2>Choose your game!</h2>
+            <h2 class=" choose-fighter hidden">Choose your fighter!</h2>
+            <h2 class="human-wins hidden">👨 Human won this round! 👨</h2>
+            <h2 class="computer-wins hidden">💻 Computer won this round! 💻</h2>
+            <h2 class="game-draw hidden">😭 It's a draw! 😭</h2>
           </article>
         </div>
         <div class="center">
-          <article class="classic-section hidden">
+          <article class="classic-section">
             <button class="clasic-mode">
               <h3>Classic</h3>
+              <br>
               <p>rock > scissors</p>
               <p>paper > rock</p>
               <p>scissors > paper</p>
             </button>
           </article>
         </div>
-        <div class="classic-choices">
+        <div class="classic-choices hidden">
           <img src="assets/happy-rocks.png" alt="happy rock">
           <img src="assets/happy-paper.png" alt="happy paper">
           <img src="assets/happy-scissors.png" alt="happy scissors">
@@ -49,9 +54,10 @@
           <img src="assets/lizard.png" alt="happy lizard">
         </div>
         <div class="center">
-          <article class="difficult-section hidden">
+          <article class="difficult-section">
             <button class='difficult-mode'>
               <h3>Difficult</h3>
+              <br>
               <p>rock > scissors & lizard</p>
               <p>paper > rock & alien</p>
               <p>scissors > paper & lizard</p>
