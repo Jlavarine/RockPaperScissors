@@ -11,12 +11,11 @@ class Player {
     // display the appropriate gameMode icons
     // store selected game mode in this.selectedGameMode
   };
-  selectComputerChoice() {
-    // random generator to have the computer select one of three options: rock,paper,Scissors
-    // that choice is then stored in this.selectedChoice for the computer
-  };
   takeTurn() {
-    // player clicks one of the images to select its choice.
-    // that choice is then stored in this.selectedChoice for the human
   };
+};
+
+
+function getRandomElement(array) {
+  return array[Math.floor(Math.random() * array.length)];
 };

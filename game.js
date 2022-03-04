@@ -3,8 +3,8 @@ class Game {
     this.humanPlayer = new Player('Human', '👨');
     this.computerPlayer = new Player('Computer', '💻');
     this.humanPlayerSelectedChoice = 'rock'; // 'rock' or 'paper' or 'scissors'
-    this.computerPlayerSelectedChoice = 'alien'; // 'rock' or 'paper' or 'scissors'
-    this.selectedGameMode = 'difficultMode';
+    this.computerPlayerSelectedChoice = ''; // 'rock' or 'paper' or 'scissors'
+    this.selectedGameMode = 'difficult';
     // this.humanPlayer = new Player('Human', '👨');
     // this.computerPlayer = new Player('Computer', '💻');
     // this.humanPlayerSelectedChoice = humanPlayer.selectedChoice; // 'rock' or 'paper' or 'scissors'
@@ -54,23 +54,37 @@ class Game {
         beats: ['scissors', 'rock']
       },
     };
-  }
+  };
+  selectComputerChoice() {
+    var choices = ['rock', 'paper', 'scissors']
+    var choicesDifficult = ['rock', 'paper', 'scissors', 'lizard', 'alien']
+    if(this.selectedGameMode === 'difficult') {
+      return this.computerPlayerSelectedChoice = choicesDifficult[Math.floor(Math.random() * choices.length)]
+    } else if(this.selectedGameMode === 'classic') {
+      return this.computerPlayerSelectedChoice = choices[Math.floor(Math.random() * choices.length)]
+    }
+  };
   checkWinnerClassic() {
     if(this.humanPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].beats) {
-      console.log(`Human wins! (rock)`)
+      console.log(`Human wins!`);
+      this.humanPlayer.wins += 1;
     } else if(this.humanPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].type) {
-      console.log(`Tie Game`)
+      console.log(`Tie Game`);
     } else if(this.humanPlayerSelectedChoice === this.classicGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice !== this.classicGameRules[this.humanPlayerSelectedChoice].beats) {
-      console.log(`Computer Wins`)
+      console.log(`Computer Wins`);
+      this.computerPlayer.wins += 1;
+
     }
   };
   checkWinnerDifficult() {
     if(this.humanPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type && (this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].beats[0] || this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].beats[1])) {
-      console.log(`Human wins!`)
+      console.log(`Human wins!`);
+      this.humanPlayer.wins += 1;
     } else if(this.humanPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type && this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type) {
       console.log(`Tie Game`)
     } else if(this.humanPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].type && (this.computerPlayerSelectedChoice !== this.difficultGameRules[this.humanPlayerSelectedChoice].beats[0] || this.computerPlayerSelectedChoice !== this.difficultGameRules[this.humanPlayerSelectedChoice].beats[1])) {
-      console.log(`Computer Wins`)
+      console.log(`Computer Wins`);
+      this.computerPlayer.wins += 1;
     }
   };
   resetBoard() {
