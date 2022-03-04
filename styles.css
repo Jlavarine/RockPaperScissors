@@ -48,6 +48,7 @@ button:hover {
 img {
   height: 210px;
   width: 210px;
+  cursor: pointer;
 }
 
 .change-game-button {
@@ -112,7 +113,7 @@ img {
   padding: 9px;
   background-color: #CD82F0;
   width: 250px;
-  height: 933px;
+  height: 753px;
 }
 
 .left-side {
