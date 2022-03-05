@@ -1,6 +1,6 @@
 //global variables 👇
 var chooseFighterBanner = document.querySelector('.choose-fighter');
-var humanWinsTextBanner = document.querySelector('.human-wins');
+var humanWinsBanner = document.querySelector('.human-wins');
 var computerWinsBanner = document.querySelector('.computer-wins');
 var gameDrawBanner = document.querySelector('.game-draw');
 var classicModeButton = document.querySelector('.classic-mode');
@@ -9,16 +9,17 @@ var changeGameButton = document.querySelector('.change-game-button');
 var humanWinsCounter = document.querySelector('.human-wins-counter');
 var computerWinsCounter = document.querySelector('.computer-wins-counter');
 var chooseGameBanner = document.querySelector('.choose-game');
-var classicIcons = document.querySelector('.classic-choices');
-var difficultIcons = document.querySelector('.difficult-choices');
-var rockImg = document.querySelector('.rock');
-var paperImg = document.querySelector('.paper');
-var scissorsImg = document.querySelector('.scissors');
-var alienImg = document.querySelector('.alien');
-var lizardImg = document.querySelector('.lizard');
+var playerChoices = document.querySelector('.player-choices');
+// var difficultIcons = document.querySelector('.difficult-choices');
+var rockImg = document.getElementById('rock');
+var paperImg = document.getElementById('paper');
+var scissorsImg = document.getElementById('scissors');
+var alienImg = document.getElementById('alien');
+var lizardImg = document.getElementById('lizard');
+
+var playerChoicesArray = [rockImg, paperImg, scissorsImg, alienImg, lizardImg]
 var classicIconsArray = [rockImg, paperImg, scissorsImg];
 var difficultIconsArray = [rockImg, paperImg, scissorsImg, alienImg, lizardImg]
-
 
 var currentGame = new Game();
 var humanPlayer = currentGame.humanPlayer;
@@ -27,10 +28,11 @@ var computerPlayer = currentGame.computerPlayer;
 classicModeButton.addEventListener('click', selectClassicGameMode);
 difficultModeButton.addEventListener('click', selectDifficultGameMode);
 changeGameButton.addEventListener('click', renderHomeView);
+playerChoices.addEventListener('click', selectChoice)
 // functions 👇
 function selectClassicGameMode() {
   currentGame.selectedGameMode = 'classic'
-  show(classicIcons);
+  show(playerChoices);
   hide(alienImg);
   hide(lizardImg);
   renderGameView();
@@ -38,7 +40,7 @@ function selectClassicGameMode() {
 
 function selectDifficultGameMode() {
   currentGame.selectedGameMode = 'difficult'
-  show(classicIcons);
+  show(playerChoices);
   renderGameView();
 };
 
@@ -53,10 +55,18 @@ function renderGameView() {
 function displayWins() {
   humanWinsCounter.innerText = `Wins: ${currentGame.humanPlayer.wins}`;
   computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
-}
+};
 
 function selectChoice() {
-
+  if(event.target.id) {
+    console.log(`${event.target.id} clicked!`)
+    currentGame.humanPlayerSelectedChoice = event.target.id
+    currentGame.selectComputerChoice()
+    renderSelectedChoices()
+    currentGame.checkWinner()
+    displayWinnerBanner()
+    displayWins()
+  }
 }
 
 function renderHomeView() {
@@ -80,13 +90,38 @@ function hideIcons(array) {
 function renderSelectedChoices() {
   if(currentGame.selectedGameMode === 'classic') {
     hideIcons(classicIconsArray);
-    show(document.querySelector(`.${currentGame.humanPlayerSelectedChoice}`))
-    show(document.querySelector(`.${currentGame.computerPlayerSelectedChoice}`))
+    show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
+    show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
   } else if(currentGame.selectedGameMode === 'difficult') {
-    console.log("else if")
-    // hideIcons(classicIconsArray);
     hideIcons(difficultIconsArray);
-    show(document.querySelector(`.${currentGame.humanPlayerSelectedChoice}`))
-    show(document.querySelector(`.${currentGame.computerPlayerSelectedChoice}`))
+    show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
+    show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
   };
 };
+
+function displayWinnerBanner() {
+  hide(humanWinsBanner)
+  hide(computerWinsBanner)
+  hide(gameDrawBanner)
+  hide(chooseFighterBanner)
+  if(currentGame.winner === 'Human') {
+    show(humanWinsBanner);
+  } else if(currentGame.winner === 'Computer') {
+    show(computerWinsBanner);
+  } else if(currentGame.winner === 'Draw') {
+    show(gameDrawBanner);
+  };
+};
+
+
+// Maybe refactor the selectChoice function and decide what parts need to stay and which are better
+// suited to be in another function
+
+// // change this later(better name)
+// function showSelectedChoiceActions() {
+//   currentGame.selectComputerChoice()
+//   renderSelectedChoices()
+//   currentGame.checkWinner()
+//   displayWinnerBanner()
+//   displayWins()
+// };
