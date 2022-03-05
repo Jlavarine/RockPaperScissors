@@ -104,7 +104,7 @@ function renderSelectedChoices() {
     hideIcons(classicIconsArray);
     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
-    setTimeout('resetBoard()', 1000)
+    // setTimeout('resetBoard()', 1000)
   } else if(currentGame.selectedGameMode === 'difficult') {
     hideIcons(difficultIconsArray);
     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
