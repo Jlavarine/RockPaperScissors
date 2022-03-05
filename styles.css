@@ -129,7 +129,7 @@ max-height: 100%;
 display: block;
 }
 
-.classic-choices,
+.player-choices,
 .difficult-choices {
   display: flex;
   /* border: solid red 0.5px; */

@@ -9,13 +9,15 @@ var changeGameButton = document.querySelector('.change-game-button');
 var humanWinsCounter = document.querySelector('.human-wins-counter');
 var computerWinsCounter = document.querySelector('.computer-wins-counter');
 var chooseGameBanner = document.querySelector('.choose-game');
-var classicIcons = document.querySelector('.classic-choices');
-var difficultIcons = document.querySelector('.difficult-choices');
+var playerChoices = document.querySelector('.player-choices');
+// var difficultIcons = document.querySelector('.difficult-choices');
 var rockImg = document.getElementById('rock');
 var paperImg = document.getElementById('paper');
 var scissorsImg = document.getElementById('scissors');
 var alienImg = document.getElementById('alien');
 var lizardImg = document.getElementById('lizard');
+
+var playerChoicesArray = [rockImg, paperImg, scissorsImg, alienImg, lizardImg]
 var classicIconsArray = [rockImg, paperImg, scissorsImg];
 var difficultIconsArray = [rockImg, paperImg, scissorsImg, alienImg, lizardImg]
 
@@ -26,10 +28,11 @@ var computerPlayer = currentGame.computerPlayer;
 classicModeButton.addEventListener('click', selectClassicGameMode);
 difficultModeButton.addEventListener('click', selectDifficultGameMode);
 changeGameButton.addEventListener('click', renderHomeView);
+playerChoices.addEventListener('click', selectChoice)
 // functions 👇
 function selectClassicGameMode() {
   currentGame.selectedGameMode = 'classic'
-  show(classicIcons);
+  show(playerChoices);
   hide(alienImg);
   hide(lizardImg);
   renderGameView();
@@ -37,7 +40,7 @@ function selectClassicGameMode() {
 
 function selectDifficultGameMode() {
   currentGame.selectedGameMode = 'difficult'
-  show(classicIcons);
+  show(playerChoices);
   renderGameView();
 };
 
@@ -49,14 +52,41 @@ function renderGameView() {
   show(changeGameButton);
 };
 
+// not working
+// where to invoke?
 function displayWins() {
   humanWinsCounter.innerText = `Wins: ${currentGame.humanPlayer.wins}`;
   computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
 };
 
-function selectChoice() {
 
+function selectChoice() {
+  if(event.target.id === 'rock') {
+    console.log('rock clicked!')
+    currentGame.humanPlayerSelectedChoice = 'rock'
+  } else if (event.target.id === 'paper') {
+    console.log('paper clicked!')
+    currentGame.humanPlayerSelectedChoice = 'paper'
+  } else if (event.target.id === 'scissors') {
+    console.log('scissors clicked!')
+    currentGame.humanPlayerSelectedChoice = 'scissors'
+  } else if (event.target.id === 'lizard') {
+    console.log('lizard clicked!')
+    currentGame.humanPlayerSelectedChoice = 'lizard'
+  } else if (event.target.id === 'alien') {
+    console.log('alien clicked!')
+    currentGame.humanPlayerSelectedChoice = 'alien'
+  }
 }
+
+// function selectChoice() {
+//   for(var i = 0; i < playerChoicesArray.length; i++)
+//   if(event.target.id === playerChoicesArray[i]) {
+//     debugger;
+//     console.log(`${playerChoicesArray[i]} clicked!`)
+//     currentGame.humanPlayerSelectedChoice = `${playerChoicesArray[i]}`
+//   }
+// }
 
 function renderHomeView() {
 document.location.reload(true)
