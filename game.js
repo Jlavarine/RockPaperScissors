@@ -73,11 +73,14 @@ class Game {
     if(this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].beats[0] || this.computerPlayerSelectedChoice === this.difficultGameRules[this.humanPlayerSelectedChoice].beats[1]) {
       console.log(`Human wins!`);
       this.humanPlayer.wins += 1;
+      this.winner = 'Human'
     } else if(this.computerPlayerSelectedChoice === this.humanPlayerSelectedChoice) {
       console.log(`Tie Game`)
+      this.winner = 'Draw'
     } else if(this.computerPlayerSelectedChoice !== this.difficultGameRules[this.humanPlayerSelectedChoice].beats[0] || this.computerPlayerSelectedChoice !== this.difficultGameRules[this.humanPlayerSelectedChoice].beats[1]) {
       console.log(`Computer Wins`);
       this.computerPlayer.wins += 1;
+      this.winner = 'Computer'
     }
   };
 

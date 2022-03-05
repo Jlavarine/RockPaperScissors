@@ -93,7 +93,6 @@ function renderSelectedChoices() {
     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
   } else if(currentGame.selectedGameMode === 'difficult') {
-    console.log("else if")
     hideIcons(difficultIconsArray);
     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
@@ -106,13 +105,10 @@ function displayWinnerBanner() {
   hide(gameDrawBanner)
   hide(chooseFighterBanner)
   if(currentGame.winner === 'Human') {
-    // hide(chooseFighterBanner);
     show(humanWinsBanner);
   } else if(currentGame.winner === 'Computer') {
-    // hide(chooseFighterBanner);
     show(computerWinsBanner);
   } else if(currentGame.winner === 'Draw') {
-    // hide(chooseFighterBanner);
     show(gameDrawBanner);
   };
 };
