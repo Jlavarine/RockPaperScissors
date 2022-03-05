@@ -31,12 +31,14 @@ changeGameButton.addEventListener('click', renderHomeView);
 function selectClassicGameMode() {
   currentGame.selectedGameMode = 'classic'
   show(classicIcons);
+  hide(alienImg);
+  hide(lizardImg);
   renderGameView();
 };
 
 function selectDifficultGameMode() {
   currentGame.selectedGameMode = 'difficult'
-  show(difficultIcons);
+  show(classicIcons);
   renderGameView();
 };
 
@@ -46,8 +48,16 @@ function renderGameView() {
   hide(difficultModeButton);
   show(chooseFighterBanner);
   show(changeGameButton);
+};
+
+function displayWins() {
+  humanWinsCounter.innerText = `Wins: ${currentGame.humanPlayer.wins}`;
+  computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
 }
 
+function selectChoice() {
+
+}
 
 function renderHomeView() {
 document.location.reload(true)
@@ -73,29 +83,10 @@ function renderSelectedChoices() {
     show(document.querySelector(`.${currentGame.humanPlayerSelectedChoice}`))
     show(document.querySelector(`.${currentGame.computerPlayerSelectedChoice}`))
   } else if(currentGame.selectedGameMode === 'difficult') {
+    console.log("else if")
+    // hideIcons(classicIconsArray);
     hideIcons(difficultIconsArray);
     show(document.querySelector(`.${currentGame.humanPlayerSelectedChoice}`))
     show(document.querySelector(`.${currentGame.computerPlayerSelectedChoice}`))
-  }
-}
-
-
-
-// function renderSelectedChoices() {
-//     if(currentGame.selectedGameMode === 'classic') {
-//       for(i = 0; i < classicIconsArray.length; i++) {
-//         hide(classicIconsArray[i])
-//         show(document.querySelector(`.${currentGame.humanPlayerSelectedChoice}`))
-//         show(document.querySelector(`.${currentGame.computerPlayerSelectedChoice}`))
-//       }
-//       } else if(currentGame.selectedGameMode === 'difficult') {
-//         for(i = 0; i < difficultIconsArray.length; i++) {
-//           // hide(classicIconsArray[0])
-//           // hide(classicIconsArray[1])
-//           // hide(classicIconsArray[2])
-//           hide(difficultIconsArray[i])
-//           show(document.querySelector(`.${currentGame.humanPlayerSelectedChoice}`))
-//           show(document.querySelector(`.${currentGame.computerPlayerSelectedChoice}`))
-//         }
-//       }
-//     }
+  };
+};
