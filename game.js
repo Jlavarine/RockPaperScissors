@@ -80,6 +80,7 @@ class Game {
       this.computerPlayer.wins += 1;
     }
   };
+
   resetBoard() {
     this.humanPlayerSelectedChoice = '';
     this.computerPlayerSelectedChoice = '';

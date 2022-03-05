@@ -11,14 +11,13 @@ var computerWinsCounter = document.querySelector('.computer-wins-counter');
 var chooseGameBanner = document.querySelector('.choose-game');
 var classicIcons = document.querySelector('.classic-choices');
 var difficultIcons = document.querySelector('.difficult-choices');
-var rockImg = document.querySelector('.rock');
-var paperImg = document.querySelector('.paper');
-var scissorsImg = document.querySelector('.scissors');
-var alienImg = document.querySelector('.alien');
-var lizardImg = document.querySelector('.lizard');
+var rockImg = document.getElementById('rock');
+var paperImg = document.getElementById('paper');
+var scissorsImg = document.getElementById('scissors');
+var alienImg = document.getElementById('alien');
+var lizardImg = document.getElementById('lizard');
 var classicIconsArray = [rockImg, paperImg, scissorsImg];
 var difficultIconsArray = [rockImg, paperImg, scissorsImg, alienImg, lizardImg]
-
 
 var currentGame = new Game();
 var humanPlayer = currentGame.humanPlayer;
@@ -53,7 +52,7 @@ function renderGameView() {
 function displayWins() {
   humanWinsCounter.innerText = `Wins: ${currentGame.humanPlayer.wins}`;
   computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
-}
+};
 
 function selectChoice() {
 
@@ -80,13 +79,12 @@ function hideIcons(array) {
 function renderSelectedChoices() {
   if(currentGame.selectedGameMode === 'classic') {
     hideIcons(classicIconsArray);
-    show(document.querySelector(`.${currentGame.humanPlayerSelectedChoice}`))
-    show(document.querySelector(`.${currentGame.computerPlayerSelectedChoice}`))
+    show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
+    show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
   } else if(currentGame.selectedGameMode === 'difficult') {
     console.log("else if")
-    // hideIcons(classicIconsArray);
     hideIcons(difficultIconsArray);
-    show(document.querySelector(`.${currentGame.humanPlayerSelectedChoice}`))
-    show(document.querySelector(`.${currentGame.computerPlayerSelectedChoice}`))
+    show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
+    show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
   };
 };
