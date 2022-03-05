@@ -81,6 +81,14 @@ class Game {
     }
   };
 
+  checkWinner() {
+    if(this.selectedGameMode === 'classic') {
+      this.checkWinnerClassic()
+    } else if (this.selectedGameMode === 'difficult') {
+      this.checkWinnerDifficult()
+    }
+  }
+
   resetBoard() {
     this.humanPlayerSelectedChoice = '';
     this.computerPlayerSelectedChoice = '';

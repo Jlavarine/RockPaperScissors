@@ -64,18 +64,38 @@ function selectChoice() {
   if(event.target.id === 'rock') {
     console.log('rock clicked!')
     currentGame.humanPlayerSelectedChoice = 'rock'
+    currentGame.selectComputerChoice()
+    renderSelectedChoices()
+    currentGame.checkWinner()
+    displayWins()
   } else if (event.target.id === 'paper') {
     console.log('paper clicked!')
     currentGame.humanPlayerSelectedChoice = 'paper'
+    currentGame.selectComputerChoice()
+    renderSelectedChoices()
+    currentGame.checkWinner()
+    displayWins()
   } else if (event.target.id === 'scissors') {
     console.log('scissors clicked!')
     currentGame.humanPlayerSelectedChoice = 'scissors'
+    currentGame.selectComputerChoice()
+    renderSelectedChoices()
+    currentGame.checkWinner()
+    displayWins()
   } else if (event.target.id === 'lizard') {
     console.log('lizard clicked!')
     currentGame.humanPlayerSelectedChoice = 'lizard'
+    currentGame.selectComputerChoice()
+    renderSelectedChoices()
+    currentGame.checkWinner()
+    displayWins()
   } else if (event.target.id === 'alien') {
     console.log('alien clicked!')
     currentGame.humanPlayerSelectedChoice = 'alien'
+    currentGame.selectComputerChoice()
+    renderSelectedChoices()
+    currentGame.checkWinner()
+    displayWins()
   }
 }
 
