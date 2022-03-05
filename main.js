@@ -50,28 +50,40 @@ function renderGameView() {
   hide(difficultModeButton);
   show(chooseFighterBanner);
   show(changeGameButton);
+
 };
 
-function displayWins() {
-  humanWinsCounter.innerText = `Wins: ${currentGame.humanPlayer.wins}`;
-  computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
+function renderHomeView() {
+  show(chooseGameBanner);
+  show(classicModeButton);
+  show(difficultModeButton);
+  hide(chooseFighterBanner);
+  hide(changeGameButton);
+  hide(playerChoices);
+  hideWinnerBanners();
 };
+
+function hideWinnerBanners() {
+  hide(humanWinsBanner);
+  hide(computerWinsBanner);
+  hide(gameDrawBanner);
+};
+
 
 function selectChoice() {
   if(event.target.id) {
     console.log(`${event.target.id} clicked!`)
     currentGame.humanPlayerSelectedChoice = event.target.id
+    currentGame.humanPlayer.takeTurn()
     currentGame.selectComputerChoice()
     renderSelectedChoices()
     currentGame.checkWinner()
     displayWinnerBanner()
     displayWins()
+    // setInterval(renderGameView(), 1200)
   }
 }
 
-function renderHomeView() {
-document.location.reload(true)
-};
 
 function show(element) {
   element.classList.remove('hidden');
@@ -92,11 +104,12 @@ function renderSelectedChoices() {
     hideIcons(classicIconsArray);
     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
+    setTimeout('resetBoard()', 1000)
   } else if(currentGame.selectedGameMode === 'difficult') {
     hideIcons(difficultIconsArray);
     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
-  };
+  }
 };
 
 function displayWinnerBanner() {
@@ -113,6 +126,34 @@ function displayWinnerBanner() {
   };
 };
 
+function displayWins() {
+  humanWinsCounter.innerText = `Wins: ${currentGame.humanPlayer.wins}`;
+  computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
+};
+
+// function resetBoardClassic() {
+//   hide(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
+//   hide(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
+//   currentGame.resetBoard();
+//   hide(humanWinsBanner)
+//   hide(computerWinsBanner)
+//   hide(gameDrawBanner)
+//   show(rockImg)
+//   show(paperImg)
+//   show(scissorsImg)
+// };
+
+
+// function resetBoard() {
+//   currentGame.resetBoard();
+//   hide(humanWinsBanner)
+//   hide(computerWinsBanner)
+//   hide(gameDrawBanner)
+//   show(chooseFighterBanner)
+//   // show(rockImg)
+//   // show(paperImg)
+//   // show(scissorsImg)
+// }
 
 // Maybe refactor the selectChoice function and decide what parts need to stay and which are better
 // suited to be in another function
