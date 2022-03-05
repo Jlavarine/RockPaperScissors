@@ -4,7 +4,7 @@ class Game {
     this.computerPlayer = new Player('Computer', '💻');
     this.humanPlayerSelectedChoice = 'scissors'; // 'rock' or 'paper' or 'scissors'
     this.computerPlayerSelectedChoice = ''; // 'rock' or 'paper' or 'scissors'
-    this.selectedGameMode = 'difficult';
+    this.selectedGameMode = 'classic';
     // this.humanPlayer = new Player('Human', '👨');
     // this.computerPlayer = new Player('Computer', '💻');
     // this.humanPlayerSelectedChoice = humanPlayer.selectedChoice; // 'rock' or 'paper' or 'scissors'
@@ -66,7 +66,6 @@ class Game {
     } else if(this.computerPlayerSelectedChoice !== this.classicGameRules[this.humanPlayerSelectedChoice].beats) {
       console.log(`Computer Wins`);
       this.computerPlayer.wins += 1;
-
     }
   };
 
