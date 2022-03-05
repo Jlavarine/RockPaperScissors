@@ -1,6 +1,6 @@
 //global variables 👇
 var chooseFighterBanner = document.querySelector('.choose-fighter');
-var humanWinsTextBanner = document.querySelector('.human-wins');
+var humanWinsBanner = document.querySelector('.human-wins');
 var computerWinsBanner = document.querySelector('.computer-wins');
 var gameDrawBanner = document.querySelector('.game-draw');
 var classicModeButton = document.querySelector('.classic-mode');
@@ -52,61 +52,22 @@ function renderGameView() {
   show(changeGameButton);
 };
 
-// not working
-// where to invoke?
 function displayWins() {
   humanWinsCounter.innerText = `Wins: ${currentGame.humanPlayer.wins}`;
   computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
 };
 
-
 function selectChoice() {
-  if(event.target.id === 'rock') {
-    console.log('rock clicked!')
-    currentGame.humanPlayerSelectedChoice = 'rock'
+  if(event.target.id) {
+    console.log(`${event.target.id} clicked!`)
+    currentGame.humanPlayerSelectedChoice = event.target.id
     currentGame.selectComputerChoice()
     renderSelectedChoices()
     currentGame.checkWinner()
-    displayWins()
-  } else if (event.target.id === 'paper') {
-    console.log('paper clicked!')
-    currentGame.humanPlayerSelectedChoice = 'paper'
-    currentGame.selectComputerChoice()
-    renderSelectedChoices()
-    currentGame.checkWinner()
-    displayWins()
-  } else if (event.target.id === 'scissors') {
-    console.log('scissors clicked!')
-    currentGame.humanPlayerSelectedChoice = 'scissors'
-    currentGame.selectComputerChoice()
-    renderSelectedChoices()
-    currentGame.checkWinner()
-    displayWins()
-  } else if (event.target.id === 'lizard') {
-    console.log('lizard clicked!')
-    currentGame.humanPlayerSelectedChoice = 'lizard'
-    currentGame.selectComputerChoice()
-    renderSelectedChoices()
-    currentGame.checkWinner()
-    displayWins()
-  } else if (event.target.id === 'alien') {
-    console.log('alien clicked!')
-    currentGame.humanPlayerSelectedChoice = 'alien'
-    currentGame.selectComputerChoice()
-    renderSelectedChoices()
-    currentGame.checkWinner()
+    displayWinnerBanner()
     displayWins()
   }
 }
-
-// function selectChoice() {
-//   for(var i = 0; i < playerChoicesArray.length; i++)
-//   if(event.target.id === playerChoicesArray[i]) {
-//     debugger;
-//     console.log(`${playerChoicesArray[i]} clicked!`)
-//     currentGame.humanPlayerSelectedChoice = `${playerChoicesArray[i]}`
-//   }
-// }
 
 function renderHomeView() {
 document.location.reload(true)
@@ -138,3 +99,33 @@ function renderSelectedChoices() {
     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
   };
 };
+
+function displayWinnerBanner() {
+  hide(humanWinsBanner)
+  hide(computerWinsBanner)
+  hide(gameDrawBanner)
+  hide(chooseFighterBanner)
+  if(currentGame.winner === 'Human') {
+    // hide(chooseFighterBanner);
+    show(humanWinsBanner);
+  } else if(currentGame.winner === 'Computer') {
+    // hide(chooseFighterBanner);
+    show(computerWinsBanner);
+  } else if(currentGame.winner === 'Draw') {
+    // hide(chooseFighterBanner);
+    show(gameDrawBanner);
+  };
+};
+
+
+// Maybe refactor the selectChoice function and decide what parts need to stay and which are better
+// suited to be in another function
+
+// // change this later(better name)
+// function showSelectedChoiceActions() {
+//   currentGame.selectComputerChoice()
+//   renderSelectedChoices()
+//   currentGame.checkWinner()
+//   displayWinnerBanner()
+//   displayWins()
+// };

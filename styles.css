@@ -132,7 +132,7 @@ display: block;
 .player-choices,
 .difficult-choices {
   display: flex;
-  /* border: solid red 0.5px; */
+  border: solid red 0.5px;
   height: 210px;
   width: 280px;
   justify-content: center;
