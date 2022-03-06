@@ -6,11 +6,7 @@ class Player {
     this.selectedGameMode = '';
     this.selectedChoice = '';
   };
-  selectGameMode() {
-    // based on which gamemode button is clicked:
-    // display the appropriate gameMode icons
-    // store selected game mode in this.selectedGameMode
-  };
   takeTurn() {
+    return this.selectedChoice;
   };
 };
