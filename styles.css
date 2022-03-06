@@ -151,6 +151,11 @@ display: block;
   width: 281px;
 }
 
+.rendered-choices-area {
+  display: flex;
+  flex-direction: row;
+}
+
 .hidden {
   display: none;
 }
