@@ -95,7 +95,6 @@ class Game {
   resetBoard() {
     this.humanPlayerSelectedChoice = '';
     this.computerPlayerSelectedChoice = '';
-    this.selectedGameMode = '';
     console.log('reset')
   };
 };
