@@ -10,6 +10,8 @@ var humanWinsCounter = document.querySelector('.human-wins-counter');
 var computerWinsCounter = document.querySelector('.computer-wins-counter');
 var chooseGameBanner = document.querySelector('.choose-game');
 var playerChoices = document.querySelector('.player-choices');
+var humanChoice = document.querySelector('.human-choice');
+var computerChoice = document.querySelector('.computer-choice');
 // var difficultIcons = document.querySelector('.difficult-choices');
 var rockImg = document.getElementById('rock');
 var paperImg = document.getElementById('paper');
@@ -99,13 +101,18 @@ function showAllIcons(array) {
 function renderSelectedChoices() {
   if(currentGame.selectedGameMode === 'classic') {
     hideIcons(classicIconsArray);
-    show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
-    show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
+    show(humanChoice);
+    show(computerChoice);
+    humanChoice.innerHTML = `<img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`
+    computerChoice.innerHTML = `<img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`
     setTimeout('resetBoardClassic()', 1000)
+    console.log('after settimeout')
   } else if(currentGame.selectedGameMode === 'difficult') {
     hideIcons(difficultIconsArray);
-    show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
-    show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
+    show(humanChoice);
+    show(computerChoice);
+    humanChoice.innerHTML = `<img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`
+    computerChoice.innerHTML = `<img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`
     setTimeout('resetBoardDifficult()', 1000)
   };
 };
@@ -146,6 +153,8 @@ function displayWins() {
 };
 
 function resetBoardClassic() {
+  hide(humanChoice)
+  hide(computerChoice)
   currentGame.resetBoard();
   hideIcons(banners)
   show(chooseFighterBanner)
@@ -153,6 +162,8 @@ function resetBoardClassic() {
 };
 
 function resetBoardDifficult() {
+  hide(humanChoice)
+  hide(computerChoice)
   currentGame.resetBoard();
   hideIcons(banners)
   show(chooseFighterBanner)
