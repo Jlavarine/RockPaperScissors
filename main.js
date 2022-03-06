@@ -16,7 +16,8 @@ var paperImg = document.getElementById('paper');
 var scissorsImg = document.getElementById('scissors');
 var alienImg = document.getElementById('alien');
 var lizardImg = document.getElementById('lizard');
-
+var banners = document.querySelectorAll('.banner')
+// make these not global
 var playerChoicesArray = [rockImg, paperImg, scissorsImg, alienImg, lizardImg]
 var classicIconsArray = [rockImg, paperImg, scissorsImg];
 var difficultIconsArray = [rockImg, paperImg, scissorsImg, alienImg, lizardImg]
@@ -41,6 +42,7 @@ function selectClassicGameMode() {
 function selectDifficultGameMode() {
   currentGame.selectedGameMode = 'difficult'
   show(playerChoices);
+  showAllIcons(difficultIconsArray)
   renderGameView();
 };
 
@@ -50,7 +52,6 @@ function renderGameView() {
   hide(difficultModeButton);
   show(chooseFighterBanner);
   show(changeGameButton);
-
 };
 
 function renderHomeView() {
@@ -60,15 +61,8 @@ function renderHomeView() {
   hide(chooseFighterBanner);
   hide(changeGameButton);
   hide(playerChoices);
-  hideWinnerBanners();
+  hideIcons(banners)
 };
-
-function hideWinnerBanners() {
-  hide(humanWinsBanner);
-  hide(computerWinsBanner);
-  hide(gameDrawBanner);
-};
-
 
 function selectChoice() {
   if(event.target.id) {
@@ -76,14 +70,13 @@ function selectChoice() {
     currentGame.humanPlayerSelectedChoice = event.target.id
     currentGame.humanPlayer.takeTurn()
     currentGame.selectComputerChoice()
+    console.log(`computer clicked ${currentGame.computerPlayerSelectedChoice}`)
     renderSelectedChoices()
     currentGame.checkWinner()
     displayWinnerBanner()
     displayWins()
-    // setInterval(renderGameView(), 1200)
-  }
-}
-
+  };
+};
 
 function show(element) {
   element.classList.remove('hidden');
@@ -99,23 +92,28 @@ function hideIcons(array) {
   };
 };
 
+function showAllIcons(array) {
+  for(i = 0; i < array.length; i++) {
+    show(array[i])
+  };
+};
+
 function renderSelectedChoices() {
   if(currentGame.selectedGameMode === 'classic') {
     hideIcons(classicIconsArray);
     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
-    // setTimeout('resetBoard()', 1000)
+    setTimeout('resetBoardClassic()', 800)
   } else if(currentGame.selectedGameMode === 'difficult') {
     hideIcons(difficultIconsArray);
     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
-  }
+    setTimeout('resetBoardDifficult()', 800)
+  };
 };
 
 function displayWinnerBanner() {
-  hide(humanWinsBanner)
-  hide(computerWinsBanner)
-  hide(gameDrawBanner)
+  hideIcons(banners)
   hide(chooseFighterBanner)
   if(currentGame.winner === 'Human') {
     show(humanWinsBanner);
@@ -131,29 +129,19 @@ function displayWins() {
   computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
 };
 
-// function resetBoardClassic() {
-//   hide(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
-//   hide(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
-//   currentGame.resetBoard();
-//   hide(humanWinsBanner)
-//   hide(computerWinsBanner)
-//   hide(gameDrawBanner)
-//   show(rockImg)
-//   show(paperImg)
-//   show(scissorsImg)
-// };
+function resetBoardClassic() {
+  currentGame.resetBoard();
+  hideIcons(banners)
+  show(chooseFighterBanner)
+  showAllIcons(classicIconsArray);
+};
 
-
-// function resetBoard() {
-//   currentGame.resetBoard();
-//   hide(humanWinsBanner)
-//   hide(computerWinsBanner)
-//   hide(gameDrawBanner)
-//   show(chooseFighterBanner)
-//   // show(rockImg)
-//   // show(paperImg)
-//   // show(scissorsImg)
-// }
+function resetBoardDifficult() {
+  currentGame.resetBoard();
+  hideIcons(banners)
+  show(chooseFighterBanner)
+  showAllIcons(difficultIconsArray);
+};
 
 // Maybe refactor the selectChoice function and decide what parts need to stay and which are better
 // suited to be in another function
