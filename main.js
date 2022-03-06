@@ -66,11 +66,9 @@ function renderHomeView() {
 
 function selectChoice() {
   if(event.target.id) {
-    console.log(`${event.target.id} clicked!`)
     currentGame.humanPlayerSelectedChoice = event.target.id
     currentGame.humanPlayer.takeTurn()
     currentGame.selectComputerChoice()
-    console.log(`computer clicked ${currentGame.computerPlayerSelectedChoice}`)
     renderSelectedChoices()
     currentGame.checkWinner()
     displayWinnerBanner()
@@ -103,14 +101,32 @@ function renderSelectedChoices() {
     hideIcons(classicIconsArray);
     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
-    setTimeout('resetBoardClassic()', 800)
+    setTimeout('resetBoardClassic()', 1000)
   } else if(currentGame.selectedGameMode === 'difficult') {
     hideIcons(difficultIconsArray);
     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
-    setTimeout('resetBoardDifficult()', 800)
+    setTimeout('resetBoardDifficult()', 1000)
   };
 };
+
+
+
+
+
+// function renderSelectedChoices() {
+//   if(currentGame.selectedGameMode === 'classic') {
+//     hideIcons(classicIconsArray);
+//     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
+//     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
+//     setTimeout('resetBoardClassic()', 1000)
+//   } else if(currentGame.selectedGameMode === 'difficult') {
+//     hideIcons(difficultIconsArray);
+//     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
+//     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
+//     setTimeout('resetBoardDifficult()', 1000)
+//   };
+// };
 
 function displayWinnerBanner() {
   hideIcons(banners)
