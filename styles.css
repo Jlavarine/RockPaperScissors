@@ -53,6 +53,13 @@ img {
   transform: scale(0.9);
 }
 
+.selected {
+  text-align: center;
+  color: white;
+  font-family: 'Kalam', cursive;
+  font-size: 20px;
+}
+
 .change-game-button {
   height: 60px;
   width: 180px;
