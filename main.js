@@ -3,6 +3,7 @@ var chooseFighterBanner = document.querySelector('.choose-fighter');
 var classicModeButton = document.querySelector('.classic-mode');
 var difficultModeButton = document.querySelector('.difficult-mode');
 var changeGameButton = document.querySelector('.change-game-button');
+var resetGameButton = document.querySelector('.reset-game-button');
 var humanWinsCounter = document.querySelector('.human-wins-counter');
 var computerWinsCounter = document.querySelector('.computer-wins-counter');
 var chooseGameBanner = document.querySelector('.choose-game');
@@ -18,6 +19,7 @@ var currentGame = new Game();
 classicModeButton.addEventListener('click', selectClassicGameMode);
 difficultModeButton.addEventListener('click', selectDifficultGameMode);
 changeGameButton.addEventListener('click', renderHomeView);
+resetGameButton.addEventListener('click', resetScores);
 playerChoices.addEventListener('click', selectChoice);
 // functions 👇
 function selectClassicGameMode() {
@@ -40,7 +42,8 @@ function renderGameView() {
   hide(classicModeButton);
   hide(difficultModeButton);
   show(chooseFighterBanner);
-  show(changeGameButton);
+  show(changeGameButton)
+  show(resetGameButton);
 };
 
 function renderHomeView() {
@@ -49,6 +52,7 @@ function renderHomeView() {
   show(difficultModeButton);
   hide(chooseFighterBanner);
   hide(changeGameButton);
+  hide(resetGameButton);
   hide(playerChoices);
   hideAll(banners);
 };
@@ -89,9 +93,9 @@ function renderSelectedChoices() {
   humanChoice.innerHTML = `<p class="selected">${currentGame.humanPlayer.token} selected:</p><img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`;
   computerChoice.innerHTML = `<p class="selected">${currentGame.computerPlayer.token} selected:</p><img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`;
   if(currentGame.selectedGameMode === 'classic') {
-    setTimeout('resetBoardClassic()', 2000);
+    setTimeout('resetBoardClassic()', 1500);
   } else if(currentGame.selectedGameMode === 'difficult') {
-    setTimeout('resetBoardDifficult()', 2000);
+    setTimeout('resetBoardDifficult()', 1500);
   };
 };
 
@@ -134,3 +138,10 @@ function resetBoardDifficult() {
   resetGame();
   showAll(allChoices);
 };
+
+function resetScores() {
+  currentGame.humanPlayer.wins = 0;
+  currentGame.computerPlayer.wins = 0;
+  humanWinsCounter.innerText = 'Wins: 0';
+  computerWinsCounter.innerText = 'Wins: 0';
+}
