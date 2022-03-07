@@ -98,8 +98,8 @@ function showAllIcons(array) {
 function renderSelectedChoices() {
   if(currentGame.selectedGameMode === 'classic') {
     showPlayerChoices()
-    humanChoice.innerHTML = `<img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`
-    computerChoice.innerHTML = `<img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`
+    humanChoice.innerHTML = `<p class="selected">👨 selected:</p><img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`
+    computerChoice.innerHTML = `<p class="selected">💻 selected:</p><img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`
     setTimeout('resetBoardClassic()', 1000)
   } else if(currentGame.selectedGameMode === 'difficult') {
     showPlayerChoices()
