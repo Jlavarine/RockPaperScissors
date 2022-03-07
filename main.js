@@ -25,8 +25,6 @@ var classicIconsArray = [rockImg, paperImg, scissorsImg];
 var difficultIconsArray = [rockImg, paperImg, scissorsImg, alienImg, lizardImg]
 
 var currentGame = new Game();
-var humanPlayer = currentGame.humanPlayer;
-var computerPlayer = currentGame.computerPlayer;
 // event listeners 👇
 classicModeButton.addEventListener('click', selectClassicGameMode);
 difficultModeButton.addEventListener('click', selectDifficultGameMode);
@@ -73,8 +71,7 @@ function selectChoice() {
     currentGame.selectComputerChoice()
     renderSelectedChoices()
     currentGame.checkWinner()
-    displayWinnerBanner()
-    displayWins()
+    displayWinner()
   };
 };
 
@@ -100,84 +97,53 @@ function showAllIcons(array) {
 
 function renderSelectedChoices() {
   if(currentGame.selectedGameMode === 'classic') {
-    hideIcons(classicIconsArray);
-    show(humanChoice);
-    show(computerChoice);
+    showPlayerChoices()
     humanChoice.innerHTML = `<img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`
     computerChoice.innerHTML = `<img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`
     setTimeout('resetBoardClassic()', 1000)
-    console.log('after settimeout')
   } else if(currentGame.selectedGameMode === 'difficult') {
-    hideIcons(difficultIconsArray);
-    show(humanChoice);
-    show(computerChoice);
+    showPlayerChoices()
     humanChoice.innerHTML = `<img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`
     computerChoice.innerHTML = `<img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`
     setTimeout('resetBoardDifficult()', 1000)
   };
 };
 
+function showPlayerChoices() {
+  show(humanChoice);
+  show(computerChoice);
+  hide(playerChoices)
+}
 
-
-
-
-// function renderSelectedChoices() {
-//   if(currentGame.selectedGameMode === 'classic') {
-//     hideIcons(classicIconsArray);
-//     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
-//     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
-//     setTimeout('resetBoardClassic()', 1000)
-//   } else if(currentGame.selectedGameMode === 'difficult') {
-//     hideIcons(difficultIconsArray);
-//     show(document.getElementById(`${currentGame.humanPlayerSelectedChoice}`))
-//     show(document.getElementById(`${currentGame.computerPlayerSelectedChoice}`))
-//     setTimeout('resetBoardDifficult()', 1000)
-//   };
-// };
-
-function displayWinnerBanner() {
+function displayWinner() {
   hideIcons(banners)
   hide(chooseFighterBanner)
   if(currentGame.winner === 'Human') {
     show(humanWinsBanner);
+    humanWinsCounter.innerText = `Wins: ${currentGame.humanPlayer.wins}`;
   } else if(currentGame.winner === 'Computer') {
     show(computerWinsBanner);
+    computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
   } else if(currentGame.winner === 'Draw') {
     show(gameDrawBanner);
   };
 };
 
-function displayWins() {
-  humanWinsCounter.innerText = `Wins: ${currentGame.humanPlayer.wins}`;
-  computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
-};
-
-function resetBoardClassic() {
+function resetGame() {
   hide(humanChoice)
   hide(computerChoice)
   currentGame.resetBoard();
   hideIcons(banners)
   show(chooseFighterBanner)
+  show(playerChoices)
+}
+
+function resetBoardClassic() {
+  resetGame()
   showAllIcons(classicIconsArray);
 };
 
 function resetBoardDifficult() {
-  hide(humanChoice)
-  hide(computerChoice)
-  currentGame.resetBoard();
-  hideIcons(banners)
-  show(chooseFighterBanner)
+  resetGame()
   showAllIcons(difficultIconsArray);
 };
-
-// Maybe refactor the selectChoice function and decide what parts need to stay and which are better
-// suited to be in another function
-
-// // change this later(better name)
-// function showSelectedChoiceActions() {
-//   currentGame.selectComputerChoice()
-//   renderSelectedChoices()
-//   currentGame.checkWinner()
-//   displayWinnerBanner()
-//   displayWins()
-// };
