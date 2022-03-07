@@ -1,8 +1,5 @@
 //global variables 👇
 var chooseFighterBanner = document.querySelector('.choose-fighter');
-var humanWinsBanner = document.querySelector('.human-wins');
-var computerWinsBanner = document.querySelector('.computer-wins');
-var gameDrawBanner = document.querySelector('.game-draw');
 var classicModeButton = document.querySelector('.classic-mode');
 var difficultModeButton = document.querySelector('.difficult-mode');
 var changeGameButton = document.querySelector('.change-game-button');
@@ -88,15 +85,12 @@ function hideAll(type) {
 };
 
 function renderSelectedChoices() {
+  showPlayerChoices();
+  humanChoice.innerHTML = `<p class="selected">${currentGame.humanPlayer.token} selected:</p><img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`;
+  computerChoice.innerHTML = `<p class="selected">${currentGame.computerPlayer.token} selected:</p><img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`;
   if(currentGame.selectedGameMode === 'classic') {
-    showPlayerChoices();
-    humanChoice.innerHTML = `<p class="selected">${currentGame.humanPlayer.token} selected:</p><img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`;
-    computerChoice.innerHTML = `<p class="selected">${currentGame.computerPlayer.token} selected:</p><img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`;
     setTimeout('resetBoardClassic()', 2000);
   } else if(currentGame.selectedGameMode === 'difficult') {
-    showPlayerChoices();
-    humanChoice.innerHTML = `<p class="selected">${currentGame.humanPlayer.token} selected:</p><img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`;
-    computerChoice.innerHTML = `<p class="selected">${currentGame.computerPlayer.token} selected:</p><img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`;
     setTimeout('resetBoardDifficult()', 2000);
   };
 };
@@ -110,13 +104,13 @@ function showPlayerChoices() {
 function displayWinner() {
   hideAll(banners);
   if(currentGame.winner === 'Human') {
-    show(humanWinsBanner);
+    show(document.querySelector('.human-wins'));
     humanWinsCounter.innerText = `Wins: ${currentGame.humanPlayer.wins}`;
   } else if(currentGame.winner === 'Computer') {
-    show(computerWinsBanner);
+    show(document.querySelector('.computer-wins'));
     computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
   } else if(currentGame.winner === 'Draw') {
-    show(gameDrawBanner);
+    show(document.querySelector('.game-draw'));
   };
 };
 

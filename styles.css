@@ -12,30 +12,30 @@ h1 {
   font-size: 65px;
 }
 
+h2 {
+  font-size: 32px;
+}
+
 h1,
 h2 {
   color: white;
 }
 
-h2 {
-  font-size: 25px;
-}
-
 body {
-  height: 100%;
   background-color: #C76AF1;
+  height: 100%;
   margin: -8px;
 }
 
 button {
-  height: 207px;
-  width: 281px;
-  cursor: pointer;
   background-color: #AB49DA;
+  color: #f0f2f5;
+  cursor: pointer;
   font-family: 'Hubballi', cursive;
   font-size: 25px;
   font-weight: bold;
-  color: #f0f2f5;
+  height: 207px;
+  width: 281px;
 }
 
 button:hover {
@@ -46,93 +46,97 @@ button:hover {
 img {
   height: 210px;
   width: 210px;
+}
+/* ----------------------Buttons------------------------------------ */
+.change-game-button {
+  background-color: #AB49DA;
   cursor: pointer;
+  font-size: 22px;
+  height: 60px;
+  width: 180px;
 }
 
 .hoverable:hover {
   transform: scale(0.9);
 }
 
-.selected {
-  text-align: center;
-  color: white;
-  font-family: 'Kalam', cursive;
-  font-size: 20px;
+.difficult-mode {
+  height: 235px;
+  width: 281px;
 }
 
-.change-game-button {
-  height: 60px;
-  width: 180px;
+.clickable {
   cursor: pointer;
-  background-color: #AB49DA;
-  font-size: 22px;
+}
+/* ----------------------Sections------------------------------------ */
+.selected {
+  color: white;
+  font-family: 'Kalam', cursive;
+  font-size: 32px;
+  text-align: center;
 }
 
 .all-sections {
+  align-items: stretch;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
   height: 772px;
+  justify-content: space-between;
 }
 
 .central-section {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   width: 407px;
 }
 
 .player-section,
 .computer-section {
+  align-items: center;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-family: 'Kalam', cursive;
-  color: white;
   font-size: 35px;
   font-weight: bolder;
   height: 800px
 }
 
 .title {
-  font-family: 'Kalam', cursive;
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: column;
+  font-family: 'Kalam', cursive;
   width: 724px;
 }
 
 .left-side,
 .right-side {
+  background-color: #CD82F0;
+  height: 753px;
   margin: 0;
   padding: 9px;
-  background-color: #CD82F0;
   width: 250px;
-  height: 753px;
 }
 
 .left-side {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
 }
 
 .player-choices {
-  display: flex;
-  height: 210px;
-  width: 660px;
-  justify-content: center;
-  flex-wrap: wrap;
   align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 210px;
+  justify-content: center;
+  width: 660px;
 }
 
-.difficult-mode {
-  height: 235px;
-  width: 281px;
-}
 
 .rendered-choices-area {
   display: flex;
