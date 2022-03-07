@@ -40,6 +40,7 @@ button {
 
 button:hover {
   background-color: white;
+  box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 grey;
   color: #AB49DA;
 }
 
@@ -48,7 +49,8 @@ img {
   width: 210px;
 }
 /* ----------------------Buttons------------------------------------ */
-.change-game-button {
+.change-game-button,
+.reset-game-button {
   background-color: #AB49DA;
   cursor: pointer;
   font-size: 22px;
@@ -92,6 +94,10 @@ img {
   width: 407px;
 }
 
+.choice-icon {
+  padding: 5px;
+}
+
 .player-section,
 .computer-section {
   align-items: center;
@@ -114,18 +120,19 @@ img {
 
 .left-side,
 .right-side {
+  align-items: center;
   background-color: #CD82F0;
+  display: flex;
+  flex-direction: column;
   height: 753px;
+  justify-content: space-between;
   margin: 0;
   padding: 9px;
   width: 250px;
 }
 
-.left-side {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.player-title {
+  padding-bottom: 15px;
 }
 
 .player-choices {
@@ -136,7 +143,6 @@ img {
   justify-content: center;
   width: 660px;
 }
-
 
 .rendered-choices-area {
   display: flex;
