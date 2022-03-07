@@ -24,16 +24,20 @@ This web app allows users to play rock,paper,scissors with a computer player. Th
 # **Instructions For Use**
 - Upon the browser loading the user will the two buttons for either game mode displayed, as well as a human-player side(with win count), and a computer-player side(with win count).
 - The user can click either the _“Classic”_ or _"Difficult"_ button depending on which rules you would like to play by.
-![Game Mode Buttons](Show Buttons.gif)
+## Game Mode Buttons Demo
+![Game Mode Buttons](https://media.giphy.com/media/he1BXvZ41NO2IbIay2/giphy.gif)
 - The user then will see the associated icons for the game mode selected. The user will choose their selection by
 clicking on the icon of their choice. The computer-player will then have a choice randomly selected for them.
 - Once both users have their choices, the icons of the choices will display, a banner will show who won, and the winner of the round will see their win counter increase by one.
-![Show Choice Icons](Show Icons.gif)
+## Classic Mode Icon Demo
+![Show Choice Icons](https://media.giphy.com/media/Ho7MhtgS80YMbWhf5e/giphy.gif)
 - The board will then reset and the user can continue playing as many times as they would like.
 - If the user would like to try the other mode, they can click on the _"Change Game?"_ button which will bring them to the main view and from there they can select the other game mode.
-![Change Game Button](Change Game.gif)
+## Change Button Demo
+![Change Game Button](https://media.giphy.com/media/FKvlw1WC6YutQh1NCG/giphy.gif)
 - Both game modes function the same way. Once a choice is selected the computer-player will then have a choice randomly selected for them. Once both users have their choices, the icons of the choices will display, a banner will show who won, and the winner of the round will see their win counter increase by one.
-![Win Counter](Win counter.gif)
+## Win Counter Demo
+![Win Counter](https://media.giphy.com/media/0fVwQ590SRhTZVDKUq/giphy.gif)
 
 # **Code Architecture**
 
