@@ -115,7 +115,7 @@ function displayWinner() {
     computerWinsCounter.innerText = `Wins: ${currentGame.computerPlayer.wins}`;
   } else if(currentGame.winner === 'Draw') {
     show(document.querySelector('.game-draw'));
-  };
+  } allowResetScores();
 };
 
 function resetGame() {
@@ -139,9 +139,18 @@ function resetBoardDifficult() {
   showAll(allChoices);
 };
 
+function allowResetScores() {
+  if(currentGame.humanPlayer.wins > 0 || currentGame.computerPlayer.wins > 0) {
+    resetGameButton.classList.remove('disabled');
+    resetGameButton.classList.add('clickable');
+  };
+};
+
 function resetScores() {
-  currentGame.humanPlayer.wins = 0;
-  currentGame.computerPlayer.wins = 0;
-  humanWinsCounter.innerText = 'Wins: 0';
-  computerWinsCounter.innerText = 'Wins: 0';
-}
+    currentGame.humanPlayer.wins = 0;
+    currentGame.computerPlayer.wins = 0;
+    humanWinsCounter.innerText = 'Wins: 0';
+    computerWinsCounter.innerText = 'Wins: 0';
+    resetGameButton.classList.add('disabled');
+    resetGameButton.classList.remove('clickable');
+};
