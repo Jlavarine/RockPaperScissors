@@ -129,7 +129,7 @@ function resetGame() {
 }
 
 function resetBoardClassic() {
-  resetGame()
+  resetGame();
   showAll(allChoices);
   hide(alienImg);
   hide(lizardImg);
@@ -146,8 +146,8 @@ function allowResetScores() {
   if(currentGame.humanPlayer.wins > 0 || currentGame.computerPlayer.wins > 0) {
     resetGameButton.classList.remove('disabled');
     resetGameButton.classList.add('clickable');
-  }
-}
+  };
+};
 
 function resetScores() {
     currentGame.humanPlayer.wins = 0;
