@@ -122,7 +122,7 @@ img {
 .left-side,
 .right-side {
   align-items: center;
-  background-color: #CD82F0;
+  background-color: #c25cf2;
   display: flex;
   flex-direction: column;
   height: 100%;
