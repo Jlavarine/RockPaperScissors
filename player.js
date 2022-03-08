@@ -9,4 +9,7 @@ class Player {
   takeTurn() {
     return this.selectedChoice;
   };
+  computerPick() {
+    currentGame.selectComputerChoice()
+  }
 };

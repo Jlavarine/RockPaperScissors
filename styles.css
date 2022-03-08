@@ -76,6 +76,7 @@ img {
   font-family: 'Kalam', cursive;
   font-size: 32px;
   text-align: center;
+  padding-bottom: 25px;
 }
 
 .all-sections {
@@ -149,6 +150,11 @@ img {
   flex-direction: row;
 }
 
+.human-choice,
+.computer-choice {
+  padding: 20px;
+}
+
 .disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -158,7 +164,6 @@ img {
   background-color: #AB49DA;
   box-shadow: none;
   color: #f0f2f5;
-
 }
 
 .hidden {

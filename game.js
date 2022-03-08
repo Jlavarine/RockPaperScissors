@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.humanPlayer = new Player('Human', '👨');
+    this.humanPlayer = new Player('Human', '😃');
     this.computerPlayer = new Player('Computer', '💻');
     this.humanPlayerSelectedChoice = '';
     this.computerPlayerSelectedChoice = '';

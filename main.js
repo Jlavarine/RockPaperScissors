@@ -42,7 +42,7 @@ function renderGameView() {
   hide(classicModeButton);
   hide(difficultModeButton);
   show(chooseFighterBanner);
-  show(changeGameButton)
+  show(changeGameButton);
   show(resetGameButton);
 };
 
@@ -61,7 +61,7 @@ function selectChoice() {
   if(event.target.id) {
     currentGame.humanPlayerSelectedChoice = event.target.id;
     currentGame.humanPlayer.takeTurn();
-    currentGame.selectComputerChoice();
+    currentGame.computerPlayer.computerPick();
     renderSelectedChoices();
     currentGame.checkWinner();
     displayWinner();
@@ -90,12 +90,13 @@ function hideAll(type) {
 
 function renderSelectedChoices() {
   showPlayerChoices();
+  hide(changeGameButton);
   humanChoice.innerHTML = `<p class="selected">${currentGame.humanPlayer.token} selected:</p><img id="${currentGame.humanPlayerSelectedChoice}" src="assets/happy-${currentGame.humanPlayerSelectedChoice}.png" alt="happy ${currentGame.humanPlayerSelectedChoice}">`;
   computerChoice.innerHTML = `<p class="selected">${currentGame.computerPlayer.token} selected:</p><img id="${currentGame.computerPlayerSelectedChoice}" src="assets/happy-${currentGame.computerPlayerSelectedChoice}.png" alt="happy ${currentGame.computerPlayerSelectedChoice}">`;
   if(currentGame.selectedGameMode === 'classic') {
-    setTimeout('resetBoardClassic()', 1500);
+    setTimeout('resetBoardClassic()', 2000);
   } else if(currentGame.selectedGameMode === 'difficult') {
-    setTimeout('resetBoardDifficult()', 1500);
+    setTimeout('resetBoardDifficult()', 2000);
   };
 };
 
@@ -132,19 +133,21 @@ function resetBoardClassic() {
   showAll(allChoices);
   hide(alienImg);
   hide(lizardImg);
+  show(changeGameButton);
 };
 
 function resetBoardDifficult() {
   resetGame();
   showAll(allChoices);
+  show(changeGameButton);
 };
 
 function allowResetScores() {
   if(currentGame.humanPlayer.wins > 0 || currentGame.computerPlayer.wins > 0) {
     resetGameButton.classList.remove('disabled');
     resetGameButton.classList.add('clickable');
-  };
-};
+  }
+}
 
 function resetScores() {
     currentGame.humanPlayer.wins = 0;
