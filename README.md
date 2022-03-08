@@ -26,9 +26,9 @@ This web app allows users to play rock,paper,scissors with a computer player. Th
 ![Game Mode Buttons](https://media.giphy.com/media/g85K9fCPn1LwB6tLt0/giphy.gif)
 - The user then will see the associated icons for the game mode selected. The user will choose their selection by
 clicking on the icon of their choice. The computer-player will then have a choice randomly selected for them.
-- Once both users have their choices, the icons of the choices will display, a banner will show who won, and the winner of the round will see their win counter increase by one.
 ## Classic Mode Icon Demo
 ![Show Choice Icons](https://media.giphy.com/media/Ho7MhtgS80YMbWhf5e/giphy.gif)
+- Once both users have their choices, the icons of the choices will display, a banner will show who won, and the winner of the round will see their win counter increase by one.
 - The board will then reset and the user can continue playing as many times as they would like.
 - If the user would like to try the other mode, they can click on the _"Change Game?"_ button which will bring them to the main view and from there they can select the other game mode.
 ## Change Button Demo
@@ -49,8 +49,8 @@ This project consists of 5 primary files - Game.js, Player.js, Main.js, index.ht
 # **WAVE(Web Accessibility Evaluation Tool)**
 
 ![Wave Summary](WAVE-Summary.png)
--Based on WAVE, this application fully implements HTML that is accessible for individuals with visual disabilities.
--This tool helped me practice my developer empathy skill!
+- Based on WAVE, this application fully implements HTML that is accessible for individuals with visual disabilities.
+- This tool helped me practice my developer empathy skill!
 
 # **Wins**
 
