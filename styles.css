@@ -28,7 +28,7 @@ body {
 
 button {
   background-color: #AB49DA;
-  color: #f0f2f5;
+  color: #F0F2F5;
   cursor: pointer;
   font-family: 'Hubballi', cursive;
   font-size: 25px;
@@ -122,12 +122,11 @@ img {
 .left-side,
 .right-side {
   align-items: center;
-  background-color: #c25cf2;
+  background-color: #C25CF2;
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
-  margin: 0;
   padding: 9px;
   width: 250px;
 }
@@ -168,7 +167,7 @@ img {
 .disabled:hover {
   background-color: #AB49DA;
   box-shadow: none;
-  color: #f0f2f5;
+  color: #F0F2F5;
 }
 
 .hidden {

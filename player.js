@@ -11,5 +11,5 @@ class Player {
   };
   computerPick() {
     currentGame.selectComputerChoice()
-  }
+  };
 };
