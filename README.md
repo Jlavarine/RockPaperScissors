@@ -18,14 +18,12 @@ This web app allows users to play rock,paper,scissors with a computer player. Th
 - Type cd Rock, Paper, Scissors to move into the root directory.
 - Use a text editor of your choice to make changes to the file.
 - See you changes in the browser by running open index.html in your terminal.
-- The application is also accessible via this deploy link: [Rock, Paper, Scissors](https://github.com/Jlavarine/RockPaperScissors)
-
 
 # **Instructions For Use**
 - Upon the browser loading the user will the two buttons for either game mode displayed, as well as a human-player side(with win count), and a computer-player side(with win count).
 - The user can click either the _“Classic”_ or _"Difficult"_ button depending on which rules you would like to play by.
 ## Game Mode Buttons Demo
-![Game Mode Buttons](https://media.giphy.com/media/he1BXvZ41NO2IbIay2/giphy.gif)
+![Game Mode Buttons](https://media.giphy.com/media/g85K9fCPn1LwB6tLt0/giphy.gif)
 - The user then will see the associated icons for the game mode selected. The user will choose their selection by
 clicking on the icon of their choice. The computer-player will then have a choice randomly selected for them.
 - Once both users have their choices, the icons of the choices will display, a banner will show who won, and the winner of the round will see their win counter increase by one.
@@ -34,10 +32,12 @@ clicking on the icon of their choice. The computer-player will then have a choic
 - The board will then reset and the user can continue playing as many times as they would like.
 - If the user would like to try the other mode, they can click on the _"Change Game?"_ button which will bring them to the main view and from there they can select the other game mode.
 ## Change Button Demo
-![Change Game Button](https://media.giphy.com/media/FKvlw1WC6YutQh1NCG/giphy.gif)
+![Change Game Button](https://media.giphy.com/media/TR6cvDVSR6xvKStCJy/giphy.gif)
 - Both game modes function the same way. Once a choice is selected the computer-player will then have a choice randomly selected for them. Once both users have their choices, the icons of the choices will display, a banner will show who won, and the winner of the round will see their win counter increase by one.
+## Classic Mode Winner Demo
+![Classic Mode Winner](https://media.giphy.com/media/LSK2OBb8MS4TAq8NLI/giphy.gif)
 ## Win Counter Demo
-![Win Counter](https://media.giphy.com/media/0fVwQ590SRhTZVDKUq/giphy.gif)
+![Win Counter](https://media.giphy.com/media/hwoXIXC88sxdWHDhhz/giphy.gif)
 
 # **Code Architecture**
 
@@ -45,6 +45,17 @@ This project consists of 5 primary files - Game.js, Player.js, Main.js, index.ht
 
 - Game.js and Player.js are the two class files that interact with the data model.
 - Main.js houses our JavaScript functionality
+
+# **WAVE(Web Accessibility Evaluation Tool)**
+
+![Wave Summary](WAVE-Summary.png)
+-Based on WAVE, this application fully implements HTML that is accessible for individuals with visual disabilities.
+-This tool helped me practice my developer empathy skill!
+
+# **Wins**
+
+- I was able to create this web application using only one global variable in my main.js file.
+- This application has the most moving parts on any project I have previously completed.
 
 # **Future Updates**
 
