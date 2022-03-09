@@ -19,6 +19,10 @@ This web app allows users to play rock,paper,scissors with a computer player. Th
 - Use a text editor of your choice to make changes to the file.
 - See you changes in the browser by running open index.html in your terminal.
 
+# **Play the Game**
+- Test out the game! [Click here!](https://jlavarine.github.io/RockPaperScissors/)
+
+
 # **Instructions For Use**
 - Upon the browser loading the user will the two buttons for either game mode displayed, as well as a human-player side(with win count), and a computer-player side(with win count).
 - The user can click either the _“Classic”_ or _"Difficult"_ button depending on which rules you would like to play by.
